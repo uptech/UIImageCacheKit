@@ -22,7 +22,7 @@ public class UIImageCache {
         let imageURL: ImageURL
         var image: UIImage?
 
-        init(imageURL: ImageURL) {
+        public init(imageURL: ImageURL) {
             self.imageURL = imageURL
         }
 
