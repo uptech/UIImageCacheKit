@@ -18,15 +18,15 @@ public protocol UIImageCacheObserver {
 }
 
 public class UIImageCache {
-    class CacheImageRequest {
-        let imageURL: ImageURL
-        var image: UIImage?
+    internal class CacheImageRequest {
+        internal let imageURL: ImageURL
+        internal var image: UIImage?
 
-        public init(imageURL: ImageURL) {
+        internal init(imageURL: ImageURL) {
             self.imageURL = imageURL
         }
 
-        public func fetch(complete: ((ImageURL, UIImage?) -> ())? = nil) {
+        internal func fetch(complete: ((ImageURL, UIImage?) -> ())? = nil) {
             DispatchQueue.global().async { [weak self] in
                 if let s = self {
                     if let data = try? Data(contentsOf: s.imageURL) {
@@ -42,6 +42,10 @@ public class UIImageCache {
                 }
             }
         }
+    }
+
+    public init() {
+
     }
 
     private var images: [ImageURL: CacheImageRequest] = [:]

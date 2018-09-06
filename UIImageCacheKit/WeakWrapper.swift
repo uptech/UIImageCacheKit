@@ -1,9 +1,9 @@
 import Foundation
 
-class WeakWrapper<T> {
-    public var value: T?
+internal class WeakWrapper<T> {
+    internal var value: T?
 
-    public init(_ value: T?) {
+    internal init(_ value: T?) {
         self.value = value
     }
 }
